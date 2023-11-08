@@ -1,0 +1,33 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+header{
+    background-color: #0099ff88;
+    padding: 40px;
+}
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+    font-size: 30px;
+    padding: 10px;
+    transition: 0.6s;
+
+}
+a:hover{
+    border-bottom: 1px solid rgba(255, 255, 255, 0.349);
+
+}
+
+#a-perfil{
+    border-bottom: 1px solid white;
+}
