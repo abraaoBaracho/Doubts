@@ -31,3 +31,39 @@ a:hover{
 #a-faça-pergunta{
     border-bottom: 1px solid white;
 }
+
+#fazer-pergunta{
+    margin: 20px auto;
+    text-align: center;
+}
+
+#fazer-pergunta h2{
+    font-size: 30px;
+    margin: 20px auto;
+}
+
+#fazer-pergunta textarea{
+    width: 500px;
+    height: 250px;
+    border-radius: 20px;
+    padding: 20px;
+    outline: none;
+    resize: none;
+}
+
+#fazer-pergunta button{
+    background-color: #0099ff;
+    color: white;
+    opacity: 0.8;
+    border: none;
+    border-radius: 20px;
+    padding: 1rem 1.4rem;
+    max-width: 150px;
+    cursor: pointer;
+    transition: 0.4s;
+    margin-top: 10px;
+}
+
+#fazer-pergunta button:hover{
+    opacity: 1;
+}
