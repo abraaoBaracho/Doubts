@@ -12,35 +12,7 @@ const BannerLayer = document.querySelector("#banner-layer")
 const BannerLayerLogin = document.querySelector("#banner-layer-login")
 const PasswordDiv = document.querySelector("#password-generation-div")
 const loginBtn = document.querySelector("#Logar")
-//itens do formulário
-const nameConst = String(document.getElementById("name").value)
-const matriculaLogin = String(document.querySelector("#matricula-login").value)
-const matricula = String(document.getElementById("matricula").value)
-const periodo = String(document.getElementById("periodo").value)
-const password = String(document.getElementById("password").value)
-const confirmPassword = String(document.getElementById("confirmpassword").value)
-const passwordLogin = String(document.querySelector("#password-login").value)
-const submitBtn = String(document.getElementById("cadastrar").value)
-const nameTip = String(document.getElementById("name-tip").value)
-const periodoTip = String(document.getElementById("período-tip").value)
-const suggestion = String(document.getElementById("suggestion").value)
-/*
-const formObject = {
-    Nome: nameConst,
-    Matricula: matricula,
-    Periodo: periodo,
-    Senha: password,
-    ConfirmSenha: confirmPassword
-}
-const formLoginObject = {
-    Nome: matriculaLogin,
-    Senha: passwordLogin
-}
-const formSuggestionObject = {
-    Nome: nameTip,
-    Periodo: periodoTip,
-    Sugestão: suggestion
-}*/
+
 //o formlário
 const form = document.querySelector("#form")
 const formLogin = document.querySelector("#form-login")
@@ -53,12 +25,12 @@ const reg = document.querySelector("#register")
 const getLetterLowerCase = () => {
     //Gerar letras minúsculas aleatoriamente
     return String.fromCharCode(Math.floor(Math.random() * 26) + 97)
-} 
+}
 
 const getLetterUpperCase = () => {
     //Gerar letras maiúsculas aleatoriamente
     return String.fromCharCode(Math.floor(Math.random() * 26) + 65)
-} 
+}
 
 const getNumber = () => {
     //Gerar números aleatoriamente
@@ -72,29 +44,29 @@ const getSymbol = () => {
     return symbols[Math.floor(Math.random() * symbols.length)]
 }
 
-const  generatePassword = (getLetterLowerCase, getLetterUpperCase, getNumber, getSymbol) => {
+const generatePassword = (getLetterLowerCase, getLetterUpperCase, getNumber, getSymbol) => {
 
     let password = ""
     const passwordLength = +lengthInput.value
 
     const generators = []
 
-    if(lettersInput.checked){
+    if (lettersInput.checked) {
         generators.push(getLetterLowerCase, getLetterUpperCase)
     }
-    if(numbersInput.checked){
+    if (numbersInput.checked) {
         generators.push(getNumber)
     }
-    if(symbolsInput.checked){
+    if (symbolsInput.checked) {
         generators.push(getSymbol)
     }
     console.log(generators.length)
-    if(generators.length == 0){
+    if (generators.length == 0) {
         return
     }
 
 
-    for(c = 0; c < passwordLength; c = c + generators.length){
+    for (c = 0; c < passwordLength; c = c + generators.length) {
         generators.forEach(() => {
 
             const randomValue = generators[Math.floor(Math.random() * generators.length)]()
@@ -108,8 +80,8 @@ const  generatePassword = (getLetterLowerCase, getLetterUpperCase, getNumber, ge
     generatedPasswordElement.querySelector("h4").innerText = password
 }
 
-function login(){
-    if(BannerLayer.style.display = "block" ){
+function login() {
+    if (BannerLayer.style.display = "block") {
         BannerLayer.style.display = "none"
         form.style.display = "none"
         PasswordDiv.style.display = "none"
@@ -123,12 +95,12 @@ function login(){
     }
 }
 
-function register(){
-    if(BannerLayer.style.display = "none"){
+function register() {
+    if (BannerLayer.style.display = "none") {
         BannerLayer.style.display = "block"
         form.style.display = "block"
         PasswordDiv.style.display = "block"
-        
+
         BannerLayerLogin.style.display = "none"
         formLogin.style.display = "none"
         tipDiv.style.display = "none"
@@ -138,7 +110,7 @@ function register(){
     }
 }
 
-function enviarBtn(){
+function enviarBtn() {
     loginBtn.value = "Enviado !"
 
     setTimeout(() => {
@@ -162,7 +134,7 @@ copyPasswordButton.addEventListener("click", (e) => {
 
     navigator.clipboard.writeText(password).then(() => {
 
-        copyPasswordButton.innerText = "Senha copiada com sucesso!" 
+        copyPasswordButton.innerText = "Senha copiada com sucesso!"
 
         setTimeout(() => {
             copyPasswordButton.innerText = "Copiar"
@@ -174,21 +146,17 @@ copyPasswordButton.addEventListener("click", (e) => {
 form.addEventListener('submit', async (e) => {
     e.preventDefault()
     const formData = new FormData(form);
-    
+
     const data = await fetch(
-        'http://localhost:8000/addUser.php',{
+        'http://localhost:8000/addUser.php', {
         method: 'POST',
         body: formData
-        })
-   
-   const response = await data.json()
-   if (response[0] === "23000"){
-alert("Usuario ja cadastrado");
-   }else{
-    console.log(response);
-   }
-   
-   
+    })
+
+    const response = await data.json()
+    alert(response)
+
+
 })
 //login
 formLogin.addEventListener('submit', async (e) => {
@@ -198,27 +166,31 @@ formLogin.addEventListener('submit', async (e) => {
 
     const data = await fetch(
         'http://localhost:8000/doLogin.php', {
-            method: 'POST',
-            body: formData
-        })
+        method: 'POST',
+        body: formData
+    })
 
 
     const response = await data.json()
-    console.log(response);
-    })
-//sugestão
+    if (response === true) {
+        window.location.assign("file:///home/abraao/%C3%81rea%20de%20Trabalho/Doubts/Doubts/html/feed.html")
+    } else {
+        alert(response)
+    }
+})
+/*sugestão
 tipDiv.addEventListener('submit', async (e) => {
     enviarBtn()
-    
+
     e.preventDefault()
 
     const suggestion = formSuggestionObject
-    
+
     const data = await fetch(
-        'http://localhost:8800',{
+        'http://localhost:8800', {
         method: 'POST',
         body: suggestion
-        })
-   
-   const jsonn = await data.json()
-})
+    })
+
+    const jsonn = await data.json()
+})*/

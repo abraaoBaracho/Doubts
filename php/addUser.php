@@ -8,8 +8,10 @@ $nome = $_POST["name"];
 $matricula = $_POST["matricula"];
 $periodo = $_POST["periodo"];
 $senha = md5($_POST["password"]);
+$confirmacao = $_POST["password-login"];
 
-
+if ($senha == $confirmacao) {
+	
 try {
 	$sql = "INSERT INTO users (nome, matricula, periodo, senha) VALUES(:nome, :matricula, :periodo, :senha)";
 
@@ -21,16 +23,19 @@ try {
 	$result = $stmt->execute();
 
 	if (!$result) {
-		echo json_encode(var_dump($stmt->errorInfo()));
+		echo json_encode("Usuario já cadastrado");
 		exit;
 	} else {
-		echo json_encode(true);
+		echo json_encode("Usuario cadastrado com sucesso");
 		exit;
 	}
 } catch (PDOException $e) {
 	echo json_encode($e->getMessage());
 	//echo "Erro ao cadastrar" . $e->getMessage();
 	
+}
+}else{
+	echo json_encode("As senhas não conferem");
 }
 
 ?>
