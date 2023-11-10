@@ -31,3 +31,76 @@ a:hover{
 #a-perfil{
     border-bottom: 1px solid white;
 }
+
+main{
+    margin: auto;
+    text-align: center;
+}
+
+main h2{
+    font-size: 30px;
+    margin: 20px auto;
+}
+
+#perfil-div{
+    border: 1px solid rgba(128, 128, 128, 0.658);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 500px;
+    border-radius: 20px;
+    font-size: 30px;
+}
+
+#btn-edit-perfil{
+    background-color: #0099ff;
+    color: white;
+    opacity: 0.8;
+    border: none;
+    border-radius: 20px;
+    padding: 1rem 1.4rem;
+    max-width: 150px;
+    cursor: pointer;
+    transition: 0.4s;
+    margin-top: 10px;
+}
+#btn-edit-perfil:hover{
+    opacity: 1;
+}
+
+#editar-perfil-div{
+    margin: 20px auto;
+    border: 1px solid rgba(128, 128, 128, 0.658);
+    max-width: 700px;
+    border-radius: 20px;
+    display: none;
+}
+
+#form-perfil-edit{
+    margin: 20px auto;
+    font-size: 20px;
+}
+
+input{
+    margin: 20px auto;
+    border: none;
+    border-bottom: 1px solid rgba(108, 143, 240, 0.462);
+    padding: 20px;
+    max-width: 100vh;
+    outline: none;
+}
+
+#concluir-edit-perfil{
+    background-color: #0099ff;
+    color: white;
+    opacity: 0.8;
+    border: none;
+    border-radius: 20px;
+    padding: 1rem 1.4rem;
+    max-width: 150px;
+    cursor: pointer;
+    transition: 0.4s;
+    margin-top: 10px;
+    margin: 20px auto;
+}
+
+#concluir-edit-perfil:hover{opacity: 1;}
