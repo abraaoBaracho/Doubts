@@ -1,17 +1,49 @@
 //FUNÇÃO PARA MOSTRAR PERGUNTAS NO FEED
-const getData = async () => {
-    try {
-        const response = await axios.get("")//colocar caminho para back-end
-
-        return response
-    }
-    catch{
-        console.log(error)
-        window.alert('Estamos com problema no sistema, voltaremos logo!')
+async function getData() {
+   try {
+        const response = await axios.get("http://localhost:8000/getPerguntas.php")
+        return response.data
+    
+   }
+  catch{
+      console.log(error)
+       window.alert('Estamos com problema no sistema, voltaremos logo!')
     }
 }
-getData()
+async function printData(){
+    const dados = await getData()
+    if(Array.isArray(dados)){
+        dados.forEach(valor => {
 
+            const div = document.createElement("div");
+                div.id = "post";
+
+                const titulo = document.createElement("h3");
+                titulo.id = "titulo-post";
+                titulo.textContent = valor.titulo;
+                div.appendChild(titulo);
+
+                const pergunta = document.createElement("h3");
+                pergunta.id = "pergunta-post";
+                pergunta.textContent = valor.pergunta;
+                div.appendChild(pergunta);
+
+                const botao = document.createElement("button");
+                botao.id = "salvar";
+                botao.textContent = "Responder"
+                div.appendChild(botao);
+
+                document.body.appendChild(div);
+
+                botao.onclick = function () {
+                    // Substitua este código pelo que você deseja fazer quando o botão é clicado
+                    console.log("Botão Responder clicado para a pergunta:", valor.pergunta);
+                };
+        });
+    }
+}
+
+/*
 const perguntas = document.querySelector("#posts")
 
 const printData = async() => {
@@ -49,4 +81,4 @@ const printData = async() => {
         window.alert('Estamos com problema no sistema, voltaremos logo!')
     }
 }
-printData()
+printData()*/
