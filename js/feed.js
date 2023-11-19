@@ -2,6 +2,7 @@
 async function getData() {
    try {
         const response = await axios.get("http://localhost:8000/getPerguntas.php")
+        
         return response.data
     
    }
@@ -23,7 +24,7 @@ async function printData(){
                 titulo.textContent = valor.titulo;
                 div.appendChild(titulo);
 
-                const pergunta = document.createElement("h3");
+                const pergunta = document.createElement("h2");
                 pergunta.id = "pergunta-post";
                 pergunta.textContent = valor.pergunta;
                 div.appendChild(pergunta);
@@ -36,8 +37,10 @@ async function printData(){
                 document.body.appendChild(div);
 
                 botao.onclick = function () {
-                    // Substitua este código pelo que você deseja fazer quando o botão é clicado
-                    console.log("Botão Responder clicado para a pergunta:", valor.pergunta);
+                    sessionStorage.setItem('id_pergunta', valor.id)
+                    sessionStorage.setItem('titulo', valor.titulo)
+                    sessionStorage.setItem('pergunta', valor.pergunta)
+                    window.location.assign("file:///home/abraao/%C3%81rea%20de%20Trabalho/Doubts/Doubts/html/responder.html")
                 };
         });
     }

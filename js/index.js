@@ -172,11 +172,20 @@ formLogin.addEventListener('submit', async (e) => {
 
 
     const response = await data.json()
-    if (response === true) {
-        window.location.assign("file:///home/abraao/%C3%81rea%20de%20Trabalho/Doubts/Doubts/html/feed.html")
-    } else {
+    if (Array.isArray(response)) {
+        response.forEach(valor => {
+          
+            sessionStorage.setItem('id_user', valor.id)
+            sessionStorage.setItem('nome', valor.nome)
+            sessionStorage.setItem('matricula', valor.matricula)
+            sessionStorage.setItem('periodo', valor.periodo)
+            
+             window.location.assign("file:///home/abraao/%C3%81rea%20de%20Trabalho/Doubts/Doubts/html/feed.html")
+        })
+    }else{
         alert(response)
     }
+
 })
 /*sugestão
 tipDiv.addEventListener('submit', async (e) => {

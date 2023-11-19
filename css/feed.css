@@ -41,18 +41,18 @@ a:hover{
     padding: 40px;
 }
 
-#post h4,
-#post h3{
+#titulo-post,
+#pergunta-post{
     background-color: #0099ff88;
     padding: 40px;
     align-items: start;
 }
 
-#post h3{
+#titulo-post{
     border-radius: 20px 20px 0px 0px;
 }
 
-#post h4{
+#pergunta-post{
     border-radius: 0px 0px 20px 20px;
 }
 
@@ -60,7 +60,7 @@ a:hover{
     padding: 20px;
 }
 
-#post a{
+#salvar{
     background-color: #0099ff;
     color: white;
     opacity: 0.8;
@@ -74,6 +74,6 @@ a:hover{
     text-decoration: none;
 }
 
-#post a:hover{
+#salvar:hover{
     opacity: 1;
 }

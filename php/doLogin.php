@@ -1,5 +1,5 @@
 <?php
-session_start();   
+ 
 require_once 'conexao.php';
 header("Access-Control-Allow-Headers: Content-Type");
 header("Access-Control-Allow-Methods: GET, POST ");
@@ -16,12 +16,9 @@ try {
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     if (count($rows) > 0) {
-        $_SESSION['id_user'] = $rows[0]['id'];
-        $_SESSION['nome'] = $rows[0]['nome'];
-        $_SESSION['matricula'] = $rows[0]['matricula'];
-        $_SESSION['periodo'] = $rows[0]['periodo'];
+        
         $rows[0]["senha"] = null;
-        echo json_encode(true);
+        echo json_encode($rows);
         
         
     } else {

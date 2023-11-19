@@ -8,7 +8,7 @@ $nome = $_POST["name"];
 $matricula = $_POST["matricula"];
 $periodo = $_POST["periodo"];
 $senha = md5($_POST["password"]);
-$confirmacao = $_POST["password-login"];
+$confirmacao = md5($_POST["confirmpassword"]);
 
 if ($senha == $confirmacao) {
 	

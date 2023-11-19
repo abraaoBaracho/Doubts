@@ -5,8 +5,10 @@ header("Access-Control-Allow-Headers: Content-Type");
 header("Access-Control-Allow-Methods: GET, POST ");
 header("Access-Control-Allow-Origin: *");
 
+$id_pergunta = $_GET["id_pergunta"];
+
 try {
-    $stmt = $pdo->prepare("SELECT * FROM perguntas");
+    $stmt = $pdo->prepare("SELECT resposta AS resposta FROM resposta WHERE id_pergunta = $id_pergunta;");
     $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
