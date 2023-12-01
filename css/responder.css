@@ -30,6 +30,38 @@ a:hover{
 
 #a-feed{
     border-bottom: 1px solid white;
+}*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+header{
+    background-color: #0099ff88;
+    padding: 40px;
+}
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav a{
+    color: white;
+    text-decoration: none;
+    font-size: 30px;
+    padding: 10px;
+    transition: 0.6s;
+
+}
+a:hover{
+    border-bottom: 1px solid rgba(255, 255, 255, 0.349);
+
+}
+
+#a-feed{
+    border-bottom: 1px solid white;
 }
 
 #voltar-para-feed{
@@ -39,21 +71,29 @@ a:hover{
     position: fixed;
 }
 
-#voltar-para-feed a{
-    background-color: #0099ff;
-    color: white;
-    opacity: 0.8;
-    border: none;
+#uparrow{
+    background-color: #0099ff00;
+    color: #0099ff;
+    border: 1px solid #0099ff;
     border-radius: 20px;
     padding: 1rem 1.4rem;
     max-width: 150px;
     cursor: pointer;
     transition: 0.4s;
     text-decoration: none;
+    display: none;
 }
 
-#voltar-para-feed:hover a{
-    opacity: 1;
+#uparrow:hover{
+    background-color: #0099ff;
+    color: white;
+    border:1px solid #0099ff;
+    border-radius: 20px;
+    padding: 1rem 1.4rem;
+    max-width: 150px;
+    cursor: pointer;
+    transition: 0.4s;
+    text-decoration: none;
 }
 
 #post{
