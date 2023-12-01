@@ -49,6 +49,8 @@ a:hover{
     padding: 20px;
     outline: none;
     resize: none;
+    border: 1px solid #0099ff;
+    text-align: center;
 }
 
 #fazer-pergunta button{
@@ -66,4 +68,17 @@ a:hover{
 
 #fazer-pergunta button:hover{
     opacity: 1;
+}
+
+input,
+textarea{
+    margin: 10px;
+}
+
+input{
+    border: none;
+    border-bottom: 1px solid rgba(108, 143, 240, 0.462);
+    padding: 20px;
+    max-width: 100vh;
+    text-align: center;
 }
