@@ -3,6 +3,7 @@ var titulo = sessionStorage.getItem('titulo')
 var pergunta = sessionStorage.getItem('pergunta')
 var form = document.querySelector("form")
 var id_user = sessionStorage.getItem('id_user')
+const uparrowBtn = document.querySelector("#uparrow")
 
 document.getElementById('id_pergunta').value = id_pergunta
 document.getElementById('id_user').value = id_user
@@ -54,4 +55,14 @@ form.addEventListener('submit', async (e) => {
     setTimeout(() => {
         location.reload();
     }, 1000)
+})
+
+window.addEventListener("scroll", (e) => {
+    if(window.pageYOffset > 200){
+        uparrowBtn.style.display = "block"
+    }
+
+    else if(window.pageYOffset < 200){
+        uparrowBtn.style.display = "none"
+    }
 })
