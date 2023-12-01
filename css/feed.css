@@ -32,6 +32,31 @@ a:hover{
     border-bottom: 1px solid white;
 }
 
+#uparrow{
+    background-color: #0099ff00;
+    color: #0099ff;
+    border: 1px solid #0099ff;
+    border-radius: 20px;
+    padding: 1rem 1.4rem;
+    max-width: 150px;
+    cursor: pointer;
+    transition: 0.4s;
+    text-decoration: none;
+    display: none;
+}
+
+#uparrow:hover{
+    background-color: #0099ff;
+    color: white;
+    border:1px solid #0099ff;
+    border-radius: 20px;
+    padding: 1rem 1.4rem;
+    max-width: 150px;
+    cursor: pointer;
+    transition: 0.4s;
+    text-decoration: none;
+}
+
 #post{
     max-width: 900px;
     margin: 20px auto;
